@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { FaRegBell } from "react-icons/fa";
-import { GoSettings } from "react-icons/go";
 import { MdPlaylistAddCheck } from "react-icons/md";
 import { MdDeleteSweep } from "react-icons/md";
 

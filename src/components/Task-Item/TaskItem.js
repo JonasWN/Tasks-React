@@ -1,6 +1,5 @@
 import React from "react";
 import "./TodoItem.scss";
-import { IoIosCheckmarkCircle, IoIosArrowDropdownCircle } from "react-icons/io";
 import { FaRegBell } from "react-icons/fa";
 
 const TaskItem = props => {

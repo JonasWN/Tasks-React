@@ -1,7 +1,5 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { } from "react";
 import { MdDeleteSweep } from "react-icons/md";
-import { FaRegCalendarCheck, FaRegBell } from "react-icons/fa";
-
 const RemoveTask = ({ remove, index }) => {
   // remove task[index] from list
   const onRemove = () => {

@@ -33,7 +33,7 @@ const Clock = ({ reset }) => {
   useEffect(() => {
     const intervalID = setInterval(checkTime, 1000);
     return () => clearInterval(intervalID);
-  });
+  }, []);
 
   return (
     <section className="clock-container">

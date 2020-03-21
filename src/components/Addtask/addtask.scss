@@ -18,21 +18,21 @@
   left: 50%;
   transform: translate(-50%, 0);
   z-index: 10;
-  --borderWidth: 20px;
-  background: -webkit-linear-gradient(
-    to right,
-    #6708bd,
-    #53a5ff
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #6708bd,
-    #53a5ff
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.1), 0 1px 15px rgba(0, 0, 0, 0.1);
+  // --borderWidth: 20px;
+  // background: -webkit-linear-gradient(
+  //   to right,
+  //   #6708bd,
+  //   #53a5ff
+  // ); /* Chrome 10-25, Safari 5.1-6 */
+  // background: linear-gradient(
+  //   to right,
+  //   #6708bd,
+  //   #53a5ff
+  // ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  // box-shadow: 0 14px 28px rgba(0, 0, 0, 0.1), 0 1px 15px rgba(0, 0, 0, 0.1);
 
-  background: #fbfbff;
-  font-family: "roboto";
+  // background: #fbfbff;
+  // font-family: "roboto";
 }
 .task-form {
   display: none;

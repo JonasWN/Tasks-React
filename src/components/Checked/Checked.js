@@ -1,10 +1,7 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
-  IoIosArrowDropdownCircle,
-  IoIosCheckmarkCircle,
   IoMdCheckmarkCircleOutline
 } from "react-icons/io";
-import { MdPlaylistAddCheck } from "react-icons/md";
 import { FaRegCalendarCheck } from "react-icons/fa";
 
 const Checked = ({ task, index, taskId }) => {
@@ -26,8 +23,8 @@ const Checked = ({ task, index, taskId }) => {
         {checked ? (
           <IoMdCheckmarkCircleOutline className="avatar__icon" />
         ) : (
-          <FaRegCalendarCheck className="avatar__icon" style={smallIcon} />
-        )}
+            <FaRegCalendarCheck className="avatar__icon" style={smallIcon} />
+          )}
       </div>
       <div className="task-item__info">
         <h3

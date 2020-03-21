@@ -1,32 +1,32 @@
-import React, { useRef, useEffect, useState } from "react";
-import TaskItem from "../Task-Item/TaskItem.js";
+import React, { useRef, useEffect } from "react";
+import "../Task-Item/TodoItem.scss";
 import RemoveTask from "../RemoveTask/RemoveTask";
 import Checked from "../Checked/Checked";
 import clamp from "lodash-es/clamp";
 import swap from "lodash-move";
 import { useGesture } from "react-with-gesture";
-import { useSprings, animated, interpolate, useSpring } from "react-spring";
-import { IoIosArrowDropdownCircle } from "react-icons/io";
-import { FaRegBell } from "react-icons/fa";
+import { useSprings, animated, interpolate } from "react-spring";
+
 
 const fn = (order, down, originalIndex, curIndex, y) => index =>
   down && index === originalIndex
     ? {
-        y: curIndex * 61 + y,
-        scale: 1.1,
-        zIndex: "1",
-        shadow: 20,
-        immediate: n => n === "y" || n === "zIndex"
-      }
+      y: curIndex * 61 + y,
+      scale: 1.1,
+      zIndex: "1",
+      shadow: 20,
+      immediate: n => n === "y" || n === "zIndex"
+    }
     : {
-        y: order.indexOf(index) * 61,
-        scale: 1,
-        zIndex: "0",
-        shadow: 1,
-        immediate: false
-      };
+      y: order.indexOf(index) * 61,
+      scale: 1,
+      zIndex: "0",
+      shadow: 1,
+      immediate: false
+    };
 
 const Tasks = ({ task, remove }) => {
+
   useEffect(() => {
     order.current = task.map((_, index) => index);
     setSprings(fn(order.current));
