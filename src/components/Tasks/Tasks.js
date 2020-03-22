@@ -7,6 +7,7 @@ import swap from "lodash-move";
 import { useGesture } from "react-with-gesture";
 import { useSprings, animated, interpolate } from "react-spring";
 
+const scrollElement = document.querySelector("html")
 
 const fn = (order, down, originalIndex, curIndex, y) => index =>
   down && index === originalIndex
@@ -26,18 +27,17 @@ const fn = (order, down, originalIndex, curIndex, y) => index =>
     };
 
 const Tasks = ({ task, remove }) => {
+  let order = useRef(task.map((_, index) => index));
+  const [springs, setSprings] = useSprings(task.length, fn(order.current));
 
   useEffect(() => {
     order.current = task.map((_, index) => index);
     setSprings(fn(order.current));
-  }, [task]);
-
-  let order = useRef(task.map((_, index) => index));
-  const [springs, setSprings] = useSprings(task.length, fn(order.current));
+    console.log(order.current)
+  }, [task, setSprings]);
 
   const bind = useGesture(({ args: [originalIndex], down, delta: [, y] }) => {
-    document.body.style.overflow = "hidden";
-
+    scrollElement.style.overflow = "hidden";
     const curIndex = order.current.indexOf(originalIndex);
     const curRow = clamp(
       Math.round((curIndex * 100 + y) / 100),
@@ -48,7 +48,7 @@ const Tasks = ({ task, remove }) => {
     setSprings(fn(newOrder, down, originalIndex, curIndex, y));
     if (!down) {
       order.current = newOrder;
-      document.body.style.overflow = null;
+      scrollElement.style.overflow = null;
     }
   });
 

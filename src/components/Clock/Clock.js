@@ -11,29 +11,28 @@ const Clock = ({ reset }) => {
     second: moment().second()
   });
 
-  const checkTime = () => {
-    const newTime = {
-      date: moment().format("dd"),
-      hour: moment().hour(),
-      minut: moment().minute(),
-      second: moment().second()
-    };
-    setTime(newTime);
-
-    // if midnight reset task
-    if (time.hour === 0 && midnight === true) {
-      reset();
-      midnight = false;
-    }
-    if (time.hour === 1) {
-      midnight = true;
-    }
-  };
-
   useEffect(() => {
-    const intervalID = setInterval(checkTime, 1000);
+    const intervalID = setInterval(() => {
+      const newTime = {
+        date: moment().format("dd"),
+        hour: moment().hour(),
+        minut: moment().minute(),
+        second: moment().second()
+      };
+      setTime(newTime);
+    }, 1000);
+
     return () => clearInterval(intervalID);
-  }, []);
+  }, [time]);
+
+  // if midnight reset task
+  if (time.hour === 0 && midnight === true) {
+    reset();
+    midnight = false;
+  }
+  if (time.hour === 1) {
+    midnight = true;
+  }
 
   return (
     <section className="clock-container">
