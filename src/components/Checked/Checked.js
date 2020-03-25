@@ -3,9 +3,20 @@ import {
   IoMdCheckmarkCircleOutline
 } from "react-icons/io";
 import { FaRegCalendarCheck } from "react-icons/fa";
+import Lottie from 'react-lottie';
+import * as animationData from './checked-white.json'
 
 const Checked = ({ task, index, taskId }) => {
   const [checked, setChecked] = useState(false);
+
+  const defaultOptions = {
+    loop: false,
+    autoplay: true,
+    animationData: animationData.default,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice'
+    }
+  };
 
   const onChecked = e => {
     setChecked(!checked);
@@ -21,7 +32,11 @@ const Checked = ({ task, index, taskId }) => {
         onClick={onChecked}
       >
         {checked ? (
-          <IoMdCheckmarkCircleOutline className="avatar__icon" />
+          // <IoMdCheckmarkCircleOutline className="avatar__icon" />
+          <Lottie options={defaultOptions}
+            height={40}
+            width={40}
+          />
         ) : (
             <FaRegCalendarCheck className="avatar__icon" style={smallIcon} />
           )}
